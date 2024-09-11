@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Carousel Example</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <style>
+    /* Swiper container */
+    .swiper {
+      width: 100%; /* Full width */
+      height: auto; /* Height will adjust to the images */
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+      border-radius: 25px; /* Optional: adds rounded corners to the swiper container */
+      overflow: hidden; /* Ensures the shadow and border-radius are applied properly */
+    }
+    /* Swiper slide */
+    .swiper-slide {
+      display: flex; /* Use flexbox for centering */
+      justify-content: center;
+      align-items: center;
+      height: 100px; /* Adjust the height as needed */
+    }
+    /* Images within slides */
+    .swiper-slide img {
+      max-height: 100%; /* Make image height responsive to the slide */
+      object-fit: contain; /* To make sure the whole image fits inside the slide */
+      width: auto; /* Maintain the original image width */
+    }
+    /* Swiper navigation buttons */
+    .swiper-button-prev, .swiper-button-next {
+      color: #0a6e8e; /* Adjust arrow color as needed */
+      z-index: 10; /* Ensure arrows are above the images */
+    }
+    /* Adjustments for Swiper navigation buttons size and opacity */
+    .swiper-button-prev, .swiper-button-next {
+        width: 40px; /* Size of the buttons */
+        height: 40px; /* Size of the buttons */
+        opacity: 0.5; /* Reduced opacity for a lighter appearance */
+        
+        /* Align text (arrow) in the center for the buttons */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        /* Position buttons in the corners */
+        top: 100%; /* Align vertically at the middle */
+        transform: translateY(-100%); /* Adjust alignment to the middle */
+    }
+
+    /* Adjust the size of the arrow icons */
+    .swiper-button-prev::after, .swiper-button-next::after {
+        font-size: 20px; /* Size of the arrow icons */
+    }
+
+    /* Specific adjustments for positioning */
+    .swiper-button-prev {
+        left: -10px; /* Move to the left corner */
+    }
+    .swiper-button-next {
+        right: -10px; /* Move to the right corner */
+    }
+    /* Swiper pagination bullets */
+    .swiper-pagination-bullet {
+      background: #0a6e8e; /* Adjust bullet color as needed */
+      z-index: 10; /* Ensure pagination is above the images */
+    }
+</style>
+
+</head>
+<body>
+
+<!-- Swiper HTML layout -->
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <!-- Add your slides with images here -->
+        <div class="swiper-slide">
+            <img         src="https://static.wixstatic.com/media/15e659_b118737cc58c4c15bc5d996c3d63f41c~mv2.jpg" alt="Central Reach">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_176d05520e0d459d8e928eb44e39b8b4~mv2.jpg" alt="Clinic source">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_41813ba3ee534ba7bdb43c47b43bf599~mv2.jpg" alt="Aloha">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_15ebd96cbb784cedb38be987aa524ad9~mv2.jpg" alt="Kareo">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_743d18149c4e46199b0eb4a5314a34ea~mv2.jpg" alt="practicemate">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_42dd7fedb26f49a382f4941c495f0e04~mv2.jpg" alt="rethink">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_c858041acd53463da1cf3181ee8498ae~mv2.jpg" alt="Theralytics">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_9dc6c212214042ac87c83dbc957f3b54~mv2.jpg" alt="webaba">
+        </div>
+      <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_5816e8cfd43b48e2bcecd70968ba8370~mv2.jpg" alt="CR Essentials">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_282949a605e140ddbd74ea2c378dada0~mv2.jpg" alt="Office Ally">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_7cda9f58c3d8421f979b0d0eebf06c57~mv2.jpg" alt="Lumary">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_a568f3741af94ad181ce192e61fa7e8b~mv2.jpg" alt="Total ABA ">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://static.wixstatic.com/media/15e659_fa512af6856b4c41b28a65c506da8275~mv2.jpg" alt="WAYSTAR">
+        </div>
+        <!-- No need to repeat slides for loop, Swiper handles this -->
+    </div>
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.mySwiper', {
+        slidesPerView: 5,
+        spaceBetween: 7, // Adjusted for clarity
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
+</body>
+</html>
